@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Number To Words Converter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NumberToWords.Web.styles.css" asp-append-version="true" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #eef2ff, #dbeafe);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-wrapper {
+            flex: 1;
+            display: block;
+        }
+
+        .container {
+            max-width: 100% !important;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb) !important;
+            border: none !important;
+            padding: 14px 20px;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .custom-footer {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 14px 20px;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(3px);
+            z-index: 99999;
+        }
+
+        .loader {
+            height: 15px;
+            aspect-ratio: 4;
+            --_g: no-repeat radial-gradient(farthest-side, #133683 90%, #0000);
+            background: var(--_g) left, var(--_g) right;
+            background-size: 25% 100%;
+            display: flex;
+            
+        }
+
+        .loader:before {
+            content: "";
+            flex: 1;
+            background: inherit;
+            animation: l50 2s infinite;
+        }
+
+       @@keyframes l50 {
+            0% {
+                transform: translate(37.5%) rotate(0deg);
+            }
+
+            16.67% {
+                transform: translate(37.5%) rotate(90deg);
+            }
+
+            33.33% {
+                transform: translate(-37.5%) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(-37.5%) rotate(180deg);
+            }
+
+            66.67% {
+                transform: translate(-37.5%) rotate(270deg);
+            }
+
+            83.33% {
+                transform: translate(37.5%) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(37.5%) rotate(360deg);
+            }
+        }
+
+        #loader {
+            display: none;
+        }
+    </style>
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Number To Words Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="NumberToWords" asp-action="NumberToWordsIndex">Assessment: Number To Words</a>
+                        </li> *@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-wrapper">
+
+        <main role="main">
+            @RenderBody()
+        </main>
+
+    </div>
+
+    <footer class="custom-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    © 2026 Number To Words Converter |  <span id="developedBy"></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#developedBy").text("Developed by Santhosh P");
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <div id="loader" class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+</body>
+</html>
+

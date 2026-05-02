@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/NumberToWords.Web.styles.css" asp-append-version="true" />
+<link href="~/css/homepage/homepage.css" rel="stylesheet" />
+
+
+
+<div class="home-container">
+
+    <div class="envelope-wrapper">
+
+        <div class="application-title">
+            <h3>
+                Welcome To Metaplore Assessment
+            </h3>
+        </div>
+
+        <div id="envelope" class="close">
+
+            <div class="front flap"></div>
+
+            <div class="front pocket"></div>
+
+            <div class="letter">
+
+                <div class="letter-content" style="font-family:cursive;">
+
+                    <h3>
+                        Number To Words Converter
+                    </h3>
+
+                    <hr style="width: 60%; margin: 15px auto; border: 3px solid #dce2ea;" />
+
+                    <h3 class="author">
+
+                        Developed by Santhosh P
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="action-container">
+
+            <button id="open"
+                    class="open-btn">
+
+                Open Envelope
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/homepage/homepage.js"></script>

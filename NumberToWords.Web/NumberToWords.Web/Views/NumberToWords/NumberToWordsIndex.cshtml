@@ -1,0 +1,80 @@
+﻿@model NumberToWords.Web.Models.NumberToWords.Responses.NumberToWordsResponse
+
+@{
+    ViewData["Title"] = "Number To Words";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <!-- TITLE -->
+                    <div class="text-center mb-3 fw-semibold text-secondary">
+                        Number to Words Converter
+                    </div>
+
+                    <!-- INPUT -->
+                    <div class="mb-4">
+
+                        @Html.LabelFor(model => model.Amount, "Amount (Numbers)", new { @class = "form-label fw-semibold" })
+
+                        @Html.TextBoxFor(model => model.Amount, new
+                        {
+                            id = "txtAmount",
+                            maxlength = "18",
+                            @class = "form-control custom-input allowDecimalOnly",
+                            @placeholder = "Enter amount",
+                            @autocomplete = "off"
+                        })
+
+                        <span class="text-danger" id="dspAmount"></span>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <div class="d-grid">
+
+                        <!-- IMPORTANT: type button -->
+                        <button type="button" id="btnSubmit" class="btn btn-primary custom-btn">
+                            Convert To Words
+                        </button>
+
+                    </div>
+
+                    <!-- RESULT -->
+                    <div class="result-container mt-4">
+
+                        <!-- RESULT TITLE -->
+                        <div class="form-label fw-semibold">
+                            Amount (Words)
+                        </div>
+
+                        <!-- RESULT DISPLAY BOX -->
+                        <div id="resultBox" class="result-box"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Styles {
+    <link href="~/css/numbertowords/numbertowordsindex.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/numnertowords/numbertowordsindex.js"></script>
+}

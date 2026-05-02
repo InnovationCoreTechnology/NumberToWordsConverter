@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Docs/">
+    <File Path="Approach-Design-Decision.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="../NumberToWords.Tests/NumberToWords.Tests.csproj" />
+  <Project Path="NumberToWords.Web/NumberToWords.Web.csproj" />
+</Solution>
